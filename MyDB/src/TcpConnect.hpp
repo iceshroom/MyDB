@@ -144,6 +144,7 @@ int TcpConnect(const string & Addr, const string & port) {
 		if(connect(sockfd, res->ai_addr, res->ai_addrlen) == 0)
 			break;
 		close(sockfd);
+		sockfd = -1;
 		res = res->ai_next;
 	}
 
